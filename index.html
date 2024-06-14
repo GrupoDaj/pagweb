@@ -308,23 +308,33 @@
         </div>
     </div>
 </div>
-<script>
-    function showLocation(location) {
-        var locationInfo = document.getElementById('location-info');
-        var mexicoInfo = `<p><span class="ti-location-pin pr-3"></span> <a href="https://maps.app.goo.gl/GMEYEa57zz6pn4kg8" target="_blank">Dirección en Ciudad de México</a></p>
-                         <p><span class="ti-support pr-3"></span> <a href="tel:+1234567890" target="_blank">(123) 456-7890</a></p>
-                         <p><span class="ti-email pr-3"></span> <a href="mailto:contacto@spgrupodaj.com.mx" target="_blank">contacto@spgrupodaj.com.mx</a></p>`;
-        var moreliaInfo = `<p><span class="ti-location-pin pr-3"></span> <a href="https://maps.app.goo.gl/GMEYEa57zz6pn4kg8" target="_blank">Revilla de Camargo, Fray Antonio de San Miguel 87-A, 58277 Morelia, Mich</a></p>
-                           <p><span class="ti-support pr-3"></span> <a href="tel:+1234567890" target="_blank">(123) 456-7890</a></p>
-                           <p><span class="ti-email pr-3"></span> <a href="mailto:contacto@spgrupodaj.com.mx" target="_blank">contacto@spgrupodaj.com.mx</a></p>`;
+    <script>
+        function showLocation(location) {
+            var locationInfo = document.getElementById('location-info');
+            var mexicoInfo = `<p><span class="ti-location-pin pr-3"></span> <a href="https://maps.app.goo.gl/GMEYEa57zz6pn4kg8" target="_blank">Dirección en Ciudad de México</a></p>
+                             <p><span class="ti-support pr-3"></span> <a href="tel:+1234567890" target="_blank">(123) 456-7890</a></p>
+                             <p><span class="ti-email pr-3"></span> <a href="mailto:contacto@spgrupodaj.com.mx" target="_blank">contacto@spgrupodaj.com.mx</a></p>`;
+            var moreliaInfo = `<p><span class="ti-location-pin pr-3"></span> <a href="https://maps.app.goo.gl/GMEYEa57zz6pn4kg8" target="_blank">Revilla de Camargo, Fray Antonio de San Miguel 87-A, 58277 Morelia, Mich</a></p>
+                               <p><span class="ti-support pr-3"></span> <a href="tel:+1234567890" target="_blank">(123) 456-7890</a></p>
+                               <p><span class="ti-email pr-3"></span> <a href="mailto:contacto@spgrupodaj.com.mx" target="_blank">contacto@spgrupodaj.com.mx</a></p>`;
 
-        if (location === 'mexico') {
-            locationInfo.innerHTML = mexicoInfo;
-        } else if (location === 'morelia') {
-            locationInfo.innerHTML = moreliaInfo;
+            if (location === 'mexico') {
+                locationInfo.innerHTML = mexicoInfo;
+                initializeMap(19.4326, -99.1332); // Coordenadas para Ciudad de México
+            } else if (location === 'morelia') {
+                locationInfo.innerHTML = moreliaInfo;
+                initializeMap(19.7031, -101.1907); // Coordenadas para Morelia
+            }
         }
-    }
-</script>
+
+        function initializeMap(latitude, longitude) {
+            var mapOptions = {
+                center: { lat: latitude, lng: longitude },
+                zoom: 12
+            };
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        }
+    </script>
 
 
     <!-- page footer  -->
