@@ -290,25 +290,42 @@
         </div>
     </div>
 
-    <!-- CONTACT Section  -->
-    <div id="contact" class="container-fluid bg-dark text-light border-top wow fadeIn">
-        <div class="row">
-            <div class="col-md-6 px-0">
-                <div id="map" style="width: 100%; height: 100%; min-height: 400px"></div>
+   <div id="contact" class="container-fluid bg-dark text-light border-top wow fadeIn">
+    <div class="row">
+        <div class="col-md-6 px-0">
+            <div id="map" style="width: 100%; height: 100%; min-height: 400px"></div>
+        </div>
+        <div class="col-md-6 px-5 has-height-lg middle-items">
+            <h3>Encuéntranos</h3>
+            <p>Encuéntranos en varios puntos estratégicos a lo largo de varios estados, donde nuestro equipo te espera para brindarte el mejor servicio, estamos aquí para atenderte. Descubre nuestras ubicaciones y visítanos en persona para una experiencia única.</p>
+            <div>
+                <button onclick="showLocation('mexico')">Ciudad de México</button>
+                <button onclick="showLocation('morelia')">Morelia</button>
             </div>
-            <div class="col-md-6 px-5 has-height-lg middle-items">
-                <h3>Encuéntranos</h3>
-                <p>Encuéntranos en varios puntos estratégicos a lo largo de varios estados, donde nuestro equipo te espera para brindarte el mejor servicio, estamos aquí para atenderte. Descubre nuestras ubicaciones y visítanos en persona para una experiencia única.</p>
-<div class="text-muted">
-    <p><span class="ti-location-pin pr-3"></span> <a href="https://maps.app.goo.gl/GMEYEa57zz6pn4kg8" target="_blank">Revilla de Camargo, Fray Antonio de San Miguel 87-A, 58277 Morelia, Mich</a></p>
-    <p><span class="ti-support pr-3"></span> <a href="tel:+1234567890" target="_blank">(123) 456-7890</a></p>
-    <p><span class="ti-email pr-3"></span> <a href="mailto:contacto@spgrupodaj.com.mx" target="_blank">contacto@spgrupodaj.com.mx</a></p>
-</div>
-
-
+            <div class="text-muted" id="location-info">
+                <!-- Aquí se mostrará la información de ubicación -->
             </div>
         </div>
     </div>
+</div>
+<script>
+    function showLocation(location) {
+        var locationInfo = document.getElementById('location-info');
+        var mexicoInfo = `<p><span class="ti-location-pin pr-3"></span> <a href="https://maps.app.goo.gl/GMEYEa57zz6pn4kg8" target="_blank">Dirección en Ciudad de México</a></p>
+                         <p><span class="ti-support pr-3"></span> <a href="tel:+1234567890" target="_blank">(123) 456-7890</a></p>
+                         <p><span class="ti-email pr-3"></span> <a href="mailto:contacto@spgrupodaj.com.mx" target="_blank">contacto@spgrupodaj.com.mx</a></p>`;
+        var moreliaInfo = `<p><span class="ti-location-pin pr-3"></span> <a href="https://maps.app.goo.gl/GMEYEa57zz6pn4kg8" target="_blank">Revilla de Camargo, Fray Antonio de San Miguel 87-A, 58277 Morelia, Mich</a></p>
+                           <p><span class="ti-support pr-3"></span> <a href="tel:+1234567890" target="_blank">(123) 456-7890</a></p>
+                           <p><span class="ti-email pr-3"></span> <a href="mailto:contacto@spgrupodaj.com.mx" target="_blank">contacto@spgrupodaj.com.mx</a></p>`;
+
+        if (location === 'mexico') {
+            locationInfo.innerHTML = mexicoInfo;
+        } else if (location === 'morelia') {
+            locationInfo.innerHTML = moreliaInfo;
+        }
+    }
+</script>
+
 
     <!-- page footer  -->
     <div class="container-fluid bg-dark text-light has-height-md middle-items border-top text-center wow fadeIn">
